@@ -6,7 +6,7 @@
 
 <p align="center"><img src="https://upload.wikimedia.org/wikipedia/en/b/ba/Taipei_Medical_University_logo_with_namestyle.svg" style="transform: scale(0.5);"></p>
 
-<p>This project is computer program developed as part of Final Project for the Programming Languages for Biomedical Engineering class. This program is made by <a href="https://github.com/aleahfaa">Iffa Amalia</a>.</p>
+<p>This project is computer program developed as part of Final Project for the Programming Languages for Biomedical Engineering (醫學工程程式語言) class. This program is made by <a href="https://github.com/aleahfaa">Iffa Amalia</a>.</p>
 
 On behalf of:
 
