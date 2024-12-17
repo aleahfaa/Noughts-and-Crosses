@@ -21,7 +21,7 @@ Representing the board as a two-dimensional array made it very convenient for me
 
 In addition, implementing Tic Tac Toe also encouraged a practical approach of mastering data manipulation in C++. For instance, the enhanced visualization of the game board status and the players’ actions due to the implementation of arrays made the data more orderly and easy to navigate. The input and output functions, cin and cout, add another layer of complexity to the game since players are able to interact with the game as they make their moves and receive timely updates regarding the events in the game. Such a feature enhances the interactivity of the game, and the overall ease of use of the program because the players interact with the application directly.
 
-# Related C++ Technique
+## Related C++ Technique
 1. Pointers
 - `GameState* sharedState;`(used with the `MULTIPLAYER` preprocessor directive)
 - A pointer is used when the game runs in multiplayer mode to share the game state between processes. It points to a shared memory region for communication between different instances of the game.
@@ -80,3 +80,35 @@ Functions like `checkWinner()` and `playerTurn()` are flexible enough to be used
 14. Mutex
 - `#ifdef MULTIPLAYER` — Shared memory is used in multiplayer mode to synchronize the game state between multiple processes.
 - `shm_open`, `ftruncate`, and `mmap` are used to allocate and map shared memory, making the game state accessible across different instances of the game.
+
+## Key Features
+1. Support both single-player and multiplayer modes. For single-player mode, the user will be played against the AI.
+2. The X and O has color. I am using red color for X and yellow color for O because both of them are safe for blindcolor people.
+3. Thread-safe operations for multiplayer support.
+4. Simple AI opponent that makes random moves. (I am planning to enhance the AI performance).
+5. Shared memory implementation for multiplayer functionality.
+
+## Main Components
+1. Game State Management
+Use a `GameState` struct to track the board, turns, and game status.
+2. Player Management
+Support both human and AI players.
+3. Board Rendering
+Displays a colored, formatted game board.
+4. Move Validation
+Ensure the moves are valid before applying them.
+5. Win Detection
+Check for winning conditions in rows, columns, and diagonals.
+
+## Notable Implementation Details
+1. Uses conditional compilation (`#ifdef Multiplayer`) to handle multiplayer-specific code.
+2. Implements thread safety using mutexes for multiplayer mode.
+3. Uses ANSI color codes for visual enhancement.
+4. Provides a simple numbered interface (1-9) for move selection.
+
+## Game Flow
+1. Player selects game mode (single/multiplayer).
+2. Player chooses their role (X or O).
+3. Game alternates between players until win/draw.
+4. Board updates after each move.
+5. Automatic win/draw detection after each move.
