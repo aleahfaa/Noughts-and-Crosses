@@ -4,11 +4,14 @@
 #include <thread>
 #include <mutex>
 #include <ctime>
-#ifdef MULTIPLAYER
+#ifdef Multiplayer
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <unistd.h>
 #endif
+#define Red "\033[31m"
+#define Yellow "\033[33m"
+#define Reset "\033[0m" // reset to default
 
 using namespace std;
 
@@ -29,7 +32,7 @@ struct GameState {
     Player playerRole;         // the player's role (X or O)
 };
 
-#ifdef MULTIPLAYER
+#ifdef Multiplayer
 GameState* sharedState;
 #else
 GameState localState;
@@ -40,7 +43,13 @@ static int moveCount = 0;
 
 // inline function to print a single cell
 inline void printCell(char cell) {
-    cout << " " << cell << " ";
+    if (cell == 'X') {
+        cout << Red << " X " << Reset;
+    } else if (cell == 'O') {
+        cout << Yellow << " O " << Reset;
+    } else {
+        cout << " " << cell << " ";
+    }
 }
 
 // initialize the game state with numbers 1-9 in the cells
@@ -218,7 +227,7 @@ int main() {
     localState.playerRole = role;
 #endif
     gameLoop();
-#ifdef MULTIPLAYER
+#ifdef Multiplayer
     munmap(sharedState, sizeof(GameState));
     shm_unlink("/tic_tac_toe");
 #endif
