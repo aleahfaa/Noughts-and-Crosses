@@ -112,3 +112,6 @@ Check for winning conditions in rows, columns, and diagonals.
 3. Game alternates between players until win/draw.
 4. Board updates after each move.
 5. Automatic win/draw detection after each move.
+
+## Revision
+1. Make the AI can read user move, so the AI can prevent the user to win the game (Dec 23, 2024)
