@@ -113,5 +113,22 @@ Check for winning conditions in rows, columns, and diagonals.
 4. Board updates after each move.
 5. Automatic win/draw detection after each move.
 
+## Flowchart
+1. Initialize the Program
+2. Game Mode Selection
+   - If `Single Player`, continue with AI logic
+   - If `Multiplayer`, set up shared memory and continue
+3. Role Selection
+4. Initialize the Game State
+5. Game Loop
+   - Player's Turn
+     - Prompt for move and validate input
+     - Update board state
+   - Opponent's Turn
+     - If AI, calculate move and update board
+     - If Multiplayer, wait for shared memory updates
+7. Check if the Winner Found or Draw (Game End)
+8. Clean Up Resources and Exit
+
 ## Revision
 1. Make the AI can read user move, so the AI can prevent the user to win the game (Dec 23, 2024)
